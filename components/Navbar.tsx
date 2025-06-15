@@ -1,7 +1,9 @@
 import Link from "next/link";
-import { Button } from "./ui/button";
+import { Button, buttonVariants } from "./ui/button";
+import { auth, signOut } from "@/app/utils/auth";
 
-const Navbar = () => {
+export async function Navbar() {
+  const session = await auth();
   return (
     <nav className="flex justify-between items-center py-5">
       {/* Logo */}
@@ -13,11 +15,24 @@ const Navbar = () => {
 
       {/* Right section */}
       <div className="flex items-center gap-4">
-        {/* <ModeToggle /> */}
-        <Button className="px-4 py-2">Login</Button>
+        {session?.user ? (
+          <form
+            action={async () => {
+              "use server";
+              await signOut({ redirectTo: "/" });
+            }}
+          >
+            <Button>Logout</Button>
+          </form>
+        ) : (
+          <Link
+            href="/login"
+            className={buttonVariants({ variant: "default", size: "lg" })}
+          >
+            Login
+          </Link>
+        )}
       </div>
     </nav>
   );
-};
-
-export default Navbar;
+}
