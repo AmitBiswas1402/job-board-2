@@ -19,7 +19,6 @@ import { XIcon } from "lucide-react";
 
 import { toast } from "sonner";
 import { useState } from "react";
-import { createCompany } from "@/app/actions";
 
 import {
   Select,
@@ -30,9 +29,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { UploadDropzone } from "@/components/general/UploadThingReExport";
 import { companySchema } from "@/app/utils/zodSchemas";
 import { countryList } from "@/app/utils/countriesList";
+import { UploadDropzone } from "@/components/general/UploadthingReExport";
 
 export default function CompanyForm() {
   const form = useForm<z.infer<typeof companySchema>>({
@@ -41,7 +40,6 @@ export default function CompanyForm() {
       about: "",
       location: "",
       website: "",
-      xAccount: "",
       logo: "",
       name: "",
     },
@@ -122,22 +120,8 @@ export default function CompanyForm() {
           />
         </div>
 
-        {/* Two column layout for website and X account */}
+        {/* Two column layout for website */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <FormField
-            control={form.control}
-            name="website"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Website</FormLabel>
-                <FormControl>
-                  <Input placeholder="https://your-company.com" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
           <FormField
             control={form.control}
             name="xAccount"

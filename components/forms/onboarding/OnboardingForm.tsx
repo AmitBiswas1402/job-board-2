@@ -18,7 +18,7 @@ export const OnboardingForm = () => {
   const renderStep = () => {
     switch (step) {
       case 1:
-      return <UserTypeSelection onSelect={handleUserTypeSelect} />;
+        return <UserTypeSelection onSelect={handleUserTypeSelect} />;
       case 2:
         return userType === "company" ? (
           <p>User is a company</p>
