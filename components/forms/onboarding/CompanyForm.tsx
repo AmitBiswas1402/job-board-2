@@ -32,6 +32,7 @@ import {
 import { companySchema } from "@/app/utils/zodSchemas";
 import { countryList } from "@/app/utils/countriesList";
 import { UploadDropzone } from "@/components/general/UploadthingReExport";
+import { createCompany } from "@/app/actions";
 
 export default function CompanyForm() {
   const form = useForm<z.infer<typeof companySchema>>({
@@ -40,6 +41,7 @@ export default function CompanyForm() {
       about: "",
       location: "",
       website: "",
+      xAccount: "",
       logo: "",
       name: "",
     },
@@ -50,7 +52,7 @@ export default function CompanyForm() {
   async function onSubmit(values: z.infer<typeof companySchema>) {
     try {
       setPending(true);
-      // await createCompany(values);
+      await createCompany(values);
     } catch (error) {
       console.log(error);
       if (error instanceof Error && error.message !== "NEXT_REDIRECT") {
@@ -122,8 +124,22 @@ export default function CompanyForm() {
             />
           </div>
 
-          {/* Two column layout for website */}
+          {/* Two column layout for website and X account */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <FormField
+              control={form.control}
+              name="website"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Website</FormLabel>
+                  <FormControl>
+                    <Input placeholder="https://your-company.com" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
             <FormField
               control={form.control}
               name="xAccount"
