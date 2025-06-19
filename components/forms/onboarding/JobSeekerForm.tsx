@@ -19,9 +19,10 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { XIcon } from "lucide-react";
 
-// import PDFImage from "@/public/pdf.png";
+import PDFImage from "@/public/pdf.png";
 import Image from "next/image";
 import { UploadDropzone } from "@/components/general/UploadthingReExport";
+import { createJobSeeker } from "@/app/actions";
 
 export default function JobSeekerForm() {
   const form = useForm<z.infer<typeof jobSeekerSchema>>({
@@ -33,10 +34,16 @@ export default function JobSeekerForm() {
     },
   });
   const [pending, setPending] = useState(false);
+
   async function onSubmit(values: z.infer<typeof jobSeekerSchema>) {
     try {
       setPending(true);
-    //   await createJobSeeker(values);
+      await createJobSeeker({
+        ...values,
+        location: "",
+        logo: "",
+        website: "",
+      });
     } catch (error) {
       if (error instanceof Error && error.message !== "NEXT_REDIRECT") {
         toast.error("Something went wrong. Please try again.");
@@ -91,13 +98,13 @@ export default function JobSeekerForm() {
                 <div>
                   {field.value ? (
                     <div className="relative w-fit">
-                      {/* <Image
+                      <Image
                         src={PDFImage}
                         alt="Company Logo"
                         width={100}
                         height={100}
                         className="rounded-lg"
-                      /> */}
+                      />
                       <Button
                         type="button"
                         variant="destructive"
