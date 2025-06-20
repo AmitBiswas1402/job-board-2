@@ -11,9 +11,9 @@ async function checkIfOnboardingCompleted(userId: string) {
     },
   });
 
-  if (user?.onboardingCompleted === true) {
-    redirect("/");
-  }
+  // if (user?.onboardingCompleted === true) {
+  //   redirect("/");
+  // }
 }
 
 const Onboarding = async () => {
