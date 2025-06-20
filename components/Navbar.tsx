@@ -22,15 +22,28 @@ export async function Navbar() {
               await signOut({ redirectTo: "/" });
             }}
           >
-            <Button>Logout</Button>
+            <Link
+              className={buttonVariants({ size: "default" })}
+              href="/post-job"
+            >
+              Post Job
+            </Link>
+            <Button className="ml-5" variant="outline" size="default">
+              Logout
+            </Button>
           </form>
         ) : (
-          <Link
-            href="/login"
-            className={buttonVariants({ variant: "default", size: "lg" })}
-          >
-            Login
-          </Link>
+          <div>
+            <Link
+              href="/login"
+              className={buttonVariants({
+                variant: "default",
+                size: "default",
+              })}
+            >
+              Login
+            </Link>
+          </div>
         )}
       </div>
     </nav>
