@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import {
   Card,
   CardContent,
@@ -78,15 +77,14 @@ const PostJobPage = async () => {
   const data = await getCompany(session.id as string);
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-5">
-      {/* <CreateJobForm
+      <CreateJobForm
         companyAbout={data.about}
         companyLocation={data.location}
         companyLogo={data.logo}
         companyName={data.name}
         companyXAccount={data.xAccount}
         companyWebsite={data.website}
-      /> */}
-      <CreateJobForm />
+      />
 
       <div className="col-span-1">
         <Card className="lg:sticky lg:top-4">
@@ -125,7 +123,7 @@ const PostJobPage = async () => {
                   className="border-l-2 border-primary pl-4"
                 >
                   <p className="text-sm italic text-muted-foreground">
-                    "{testimonial.quote}"
+                    &quot;{testimonial.quote}&quot;
                   </p>
                   <footer className="mt-2 text-sm font-medium">
                     - {testimonial.author}, {testimonial.company}
