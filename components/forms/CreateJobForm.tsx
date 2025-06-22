@@ -30,6 +30,8 @@ import Image from "next/image";
 import { Button } from "../ui/button";
 import { XIcon } from "lucide-react";
 import { UploadDropzone } from "../general/UploadthingReExport";
+import { SalaryRangeSelector } from "../general/SalaryRangeSelector";
+import JobDescriptionEditor from "../general/JobDescriptionEditor";
 
 interface CreateJobFormProps {
   companyName: string;
@@ -180,11 +182,11 @@ const CreateJobForm = ({
               <FormItem>
                 <FormLabel>Salary Range</FormLabel>
                 <FormControl>
-                  {/* <SalaryRangeSelector
+                  <SalaryRangeSelector
                     control={form.control}
                     minSalary={30000}
                     maxSalary={1000000}
-                  /> */}
+                  />
                 </FormControl>
                 <FormMessage>
                   {form.formState.errors.salaryFrom?.message ||
@@ -200,7 +202,7 @@ const CreateJobForm = ({
                 <FormItem>
                   <FormLabel>Job Description</FormLabel>
                   <FormControl>
-                    {/* <JobDescriptionEditor field={field} /> */}
+                    <JobDescriptionEditor field={field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
