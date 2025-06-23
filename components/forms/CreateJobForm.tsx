@@ -32,6 +32,8 @@ import { XIcon } from "lucide-react";
 import { UploadDropzone } from "../general/UploadthingReExport";
 import { SalaryRangeSelector } from "../general/SalaryRangeSelector";
 import JobDescriptionEditor from "../general/JobDescriptionEditor";
+import BenefitsSelector from "../general/BenefitSelector";
+import { JobListingDurationSelector } from "../general/JobListingDurationSelector";
 
 interface CreateJobFormProps {
   companyName: string;
@@ -216,7 +218,7 @@ const CreateJobForm = ({
                 <FormItem>
                   <FormLabel>Benefits</FormLabel>
                   <FormControl>
-                    {/* <BenefitsSelector field={field} /> */}
+                    <BenefitsSelector field={field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -412,7 +414,7 @@ const CreateJobForm = ({
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    {/* <JobListingDurationSelector field={field} /> */}
+                    <JobListingDurationSelector field={field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
