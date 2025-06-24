@@ -34,6 +34,7 @@ import { SalaryRangeSelector } from "../general/SalaryRangeSelector";
 import JobDescriptionEditor from "../general/JobDescriptionEditor";
 import BenefitsSelector from "../general/BenefitSelector";
 import { JobListingDurationSelector } from "../general/JobListingDurationSelector";
+import { createJob } from "@/app/actions";
 
 interface CreateJobFormProps {
   companyName: string;
@@ -76,7 +77,7 @@ const CreateJobForm = ({
     try {
       setPending(true);
 
-      // await createJob(values);
+      await createJob(values);
     } catch {
       toast.error("Something went wrong. Please try again.");
     } finally {
@@ -403,7 +404,7 @@ const CreateJobForm = ({
           </CardContent>
         </Card>
 
-        <Card>
+        {/* <Card>
           <CardHeader>
             <CardTitle>Job Listing Duration</CardTitle>
           </CardHeader>
@@ -421,8 +422,8 @@ const CreateJobForm = ({
               )}
             />
           </CardContent>
-        </Card>
-        <Button type="submit" className="w-full" disabled={pending}>
+        </Card> */}
+        <Button type="submit" className="w-full cursor-pointer" disabled={pending}>
           {pending ? "Submitting..." : "Continue"}
         </Button>
       </form>

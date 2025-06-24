@@ -124,6 +124,6 @@ export async function createJob(data: z.infer<typeof jobSchema>) {
       benefits: validatedData.benefits,
     },
   });
-  
-  return redirect("/dashboard");
+
+  return redirect("/");
 }
