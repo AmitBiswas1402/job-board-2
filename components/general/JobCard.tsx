@@ -6,7 +6,7 @@ import { MapPin, User2 } from "lucide-react";
 import { Badge } from "../ui/badge";
 import { formatCurrency } from "@/app/utils/formatCurrency";
 import Image from "next/image";
-// import { formatRelativeTime } from "@/app/utils/formatRelativeTime";
+import { formatRelativeTime } from "@/app/utils/formatRelativeTime";
 
 interface iAppProps {
   job: {
@@ -79,7 +79,7 @@ export function JobCard({ job }: iAppProps) {
                 </h1>
               </div>
               <p className="text-sm text-muted-foreground md:text-right">
-                {/* {formatRelativeTime(job.createdAt)} */}
+                {formatRelativeTime(job.createdAt)}
               </p>
             </div>
           </div>

@@ -7,6 +7,7 @@ import { prisma } from "@/lib/db";
 import { redirect } from "next/navigation";
 import arcjet, { request } from "@arcjet/next";
 import { detectBot, shield } from "./utils/arcjet";
+import { inngest } from "./utils/inngest/client";
 
 const aj = arcjet({
   key: process.env.ARCJET_KEY!,
