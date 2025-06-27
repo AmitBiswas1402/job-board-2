@@ -98,8 +98,8 @@ const JobIdPage = async ({ params }: { params: Params }) => {
   const locationFlag = getFlagEmoji(jobData.location);
 
   return (
-    <div className="container mx-auto py-8">
-      <div className="grid lg:grid-cols-[1fr,400px] gap-8">
+    <div className="w-full max-w-6xl mx-auto py-8">
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr,400px] gap-8">
         {/* Main Content */}
         <div className="space-y-8">
           {/* Header */}
@@ -124,11 +124,11 @@ const JobIdPage = async ({ params }: { params: Params }) => {
 
             {session?.user ? (
               <form
-                // action={
-                //   savedJob
-                //     ? unsaveJobPost.bind(null, savedJob.id)
-                //     : saveJobPost.bind(null, jobId)
-                // }
+              // action={
+              //   savedJob
+              //     ? unsaveJobPost.bind(null, savedJob.id)
+              //     : saveJobPost.bind(null, jobId)
+              // }
               >
                 <SaveJobButton savedJob={!!savedJob} />
               </form>
