@@ -20,6 +20,7 @@ import arcjet, { detectBot } from "@/app/utils/arcjet";
 import { request } from "@arcjet/next";
 import { prisma } from "@/lib/db";
 import { JsonToHtml } from "@/components/general/Json2Html";
+import { saveJobPost, unsaveJobPost } from "@/app/actions";
 
 const aj = arcjet.withRule(
   detectBot({
@@ -124,11 +125,11 @@ const JobIdPage = async ({ params }: { params: Params }) => {
 
             {session?.user ? (
               <form
-              // action={
-              //   savedJob
-              //     ? unsaveJobPost.bind(null, savedJob.id)
-              //     : saveJobPost.bind(null, jobId)
-              // }
+                action={
+                  savedJob
+                    ? unsaveJobPost.bind(null, savedJob.id)
+                    : saveJobPost.bind(null, jobId)
+                }
               >
                 <SaveJobButton savedJob={!!savedJob} />
               </form>
