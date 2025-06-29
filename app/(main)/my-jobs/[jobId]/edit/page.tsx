@@ -1,5 +1,5 @@
 import { requireUser } from "@/app/utils/hooks";
-import { EditJobForm } from "@/components/forms/EditjobForm";
+import { EditJobForm } from "@/components/forms/EditJobForm";
 import { prisma } from "@/lib/db"
 import { notFound } from "next/navigation";
 
