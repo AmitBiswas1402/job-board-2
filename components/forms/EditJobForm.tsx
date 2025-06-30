@@ -34,6 +34,7 @@ import { SalaryRangeSelector } from "../general/SalaryRangeSelector";
 import JobDescriptionEditor from "../general/JobDescriptionEditor";
 import BenefitsSelector from "../general/BenefitSelector";
 import { UploadDropzone } from "../general/UploadthingReExport";
+import { updateJobPost } from "@/app/actions";
 
 interface iAppProps {
   jobPost: {
@@ -83,7 +84,7 @@ export function EditJobForm({ jobPost }: iAppProps) {
     try {
       setPending(true);
 
-    //   await updateJobPost(values, jobPost.id);
+      await updateJobPost(values, jobPost.id);
     } catch (error) {
       if (error instanceof Error && error.message !== "NEXT_REDIRECT") {
         toast.error("Something went wrong. Please try again.");

@@ -2,6 +2,7 @@ import { prisma } from "@/lib/db";
 import { JobCard } from "./JobCard";
 import { EmptyState } from "./EmptyState";
 import { JobPostStatus } from "@prisma/client";
+import { PaginationComponent } from "./PaginationComponent";
 
 async function getJobs(
   page: number = 1,
@@ -90,6 +91,10 @@ const JobListings = async ({
           href="/"
         />
       )}
+
+      <div className="flex justify-center mt-6">
+        <PaginationComponent totalPages={totalPages} currentPage={page} />
+      </div>
     </>
   );
 };
