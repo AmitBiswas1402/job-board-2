@@ -24,7 +24,7 @@ const Navbar = () => {
       className={`w-full flex items-center justify-between px-10 py-6 fixed top-0 left-0 z-50 transition-all duration-300
       ${
         scrolled
-          ? "backdrop-blur-md bg-white/5 border-b border-white/10 shadow-lg"
+          ? "backdrop-blur-md border-b border-white/10 shadow-lg"
           : "bg-transparent"
       }`}
     >
